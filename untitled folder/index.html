@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luck Lottery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #f0f8ff, #87cefa);
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    #result {
+      margin: 20px auto;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px;
+      width: 300px;
+      border-radius: 10px;
+    }
+    .good {
+      color: #0a8f08;
+      background-color: #c2f3c2;
+    }
+    .normal {
+      color: #ff8c00;
+      background-color: #ffe5b4;
+    }
+    .bad {
+      color: #a00;
+      background-color: #f5c2c2;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #0073e6;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Luck Lottery</h1>
+  <p>Click the button to see your luck!</p>
+  <button onclick="drawLuck()">Try Your Luck</button>
+  <div id="result">Your result will appear here</div>
+
+  <script>
+    function drawLuck() {
+      const outcomes = [
+        { text: "Good Luck!", class: "good" },
+        { text: "Normal Luck", class: "normal" },
+        { text: "Bad Luck!", class: "bad" }
+      ];
+
+      const randomIndex = Math.floor(Math.random() * outcomes.length);
+      const result = outcomes[randomIndex];
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = result.text;
+      resultDiv.className = result.class;
+    }
+  </script>
+</body>
+</html>
